@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Chat with Aaron's AI | Aaron's Mind Palace</title>
+    <meta name="description" content="Chat with Aaron's Mind - multiple personalities available!">
+    
+    <!-- Existing portfolio styles -->
+    <link rel="stylesheet" href="assets/css/aaron-chatbot.css">
+    
+    <style>
+        /* Page specific styles for chat integration */
+        body {
+            background: #0a0a0a;
+            color: #e0e0e0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .chat-page-header {
+            padding: 2rem;
+            text-align: center;
+            background: rgba(0, 102, 204, 0.1);
+            border-bottom: 1px solid #333;
+        }
+        
+        .chat-page-header h1 {
+            margin: 0 0 0.5rem 0;
+            font-size: 2.5rem;
+            color: #0066cc;
+        }
+        
+        .chat-page-header p {
+            margin: 0;
+            opacity: 0.8;
+        }
+        
+        .back-link {
+            position: absolute;
+            top: 2rem;
+            left: 2rem;
+            color: #0066cc;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: opacity 0.2s;
+        }
+        
+        .back-link:hover {
+            opacity: 0.8;
+        }
+        
+        .chat-container {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+        
+        #aaron-chat-root {
+            width: 100%;
+            max-width: 800px;
+            height: 600px;
+            background: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+        }
+        
+        /* Override widget styles for embedded version */
+        #aaron-chat-root .aaron-chat-widget {
+            position: relative !important;
+            width: 100% !important;
+            height: 100% !important;
+            max-width: none !important;
+            max-height: none !important;
+            bottom: auto !important;
+            right: auto !important;
+        }
+        
+        /* Instructions */
+        .instructions {
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            padding: 1.5rem;
+            background: rgba(0, 102, 204, 0.1);
+            border: 1px solid #333;
+            border-radius: 8px;
+        }
+        
+        .instructions h2 {
+            margin-top: 0;
+            color: #0066cc;
+        }
+        
+        .persona-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+        
+        .persona-item {
+            padding: 0.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 4px;
+        }
+        
+        .persona-item strong {
+            color: #0066cc;
+        }
+    </style>
+</head>
+<body>
+    <!-- Back to main site -->
+    <a href="index.html" class="back-link">
+        ← Back to Portfolio
+    </a>
+    
+    <!-- Chat page header -->
+    <div class="chat-page-header">
+        <h1>Chat with Aaron's Mind</h1>
+        <p>Select a personality and start chatting!</p>
+    </div>
+    
+    <!-- Main chat container -->
+    <div class="chat-container">
+        <div id="aaron-chat-root" 
+             data-aaron-chat 
+             data-api-url="https://aarons-chat-clqvy6lu9-ron-mans-projects.vercel.app/api/chat"
+             data-default-persona="portfolio"
+             data-theme="dark">
+        </div>
+    </div>
+    
+    <!-- Instructions -->
+    <div class="instructions">
+        <h2>Available Personalities</h2>
+        <div class="persona-list">
+            <div class="persona-item">
+                <strong>Portfolio Assistant:</strong> Knows about my projects and skills
+            </div>
+            <div class="persona-item">
+                <strong>Professional:</strong> Formal and knowledgeable
+            </div>
+            <div class="persona-item">
+                <strong>Casual:</strong> Friendly chat buddy
+            </div>
+            <div class="persona-item">
+                <strong>Technical:</strong> Deep dive into code
+            </div>
+            <div class="persona-item">
+                <strong>Creative:</strong> Imaginative and artistic
+            </div>
+            <div class="persona-item">
+                <strong>Minimalist:</strong> Brief and direct
+            </div>
+            <div class="persona-item">
+                <strong>Freako:</strong> Wild and unpredictable!
+            </div>
+            <div class="persona-item">
+                <strong>Alfred:</strong> Batman's butler (worried about Bruce)
+            </div>
+        </div>
+    </div>
+    
+    <!-- jQuery (already used in your portfolio) -->
+    <script src="assets/js/jquery.min.js"></script>
+    
+    <!-- Chat bot bundle (you'll need to build and include this) -->
+    <script src="assets/js/aaron-chatbot.iife.js"></script>
+    
+    <!-- Temporary mock to show how it would work -->
+    <script>
+        // This will be replaced with the actual chat bot bundle
+        document.addEventListener('DOMContentLoaded', function() {
+            const chatRoot = document.getElementById('aaron-chat-root');
+            chatRoot.innerHTML = `
+                <div style="display: flex; align-items: center; justify-content: center; height: 100%; color: #666;">
+                    <div style="text-align: center;">
+                        <p style="font-size: 1.2rem; margin-bottom: 1rem;">Chat Widget Will Load Here</p>
+                        <p>Build the chat app with: <code>npm run build:standalone</code></p>
+                        <p>Then copy the built files to this directory</p>
+                    </div>
+                </div>
+            `;
+        });
+    </script>
+    
+    <!-- Navigation for mobile -->
+    <script>
+        // Add any mobile navigation handlers if needed
+    </script>
+</body>
+</html>
