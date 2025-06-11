@@ -7,194 +7,135 @@
     <title>Chat with Aaron's AI | Aaron's Mind Palace</title>
     <meta name="description" content="Chat with Aaron's Mind - multiple personalities available!">
     
+    <link rel="stylesheet" href="https://aaronsmindpalace.com/assets/css/build/build.min.css">
+    <script src="https://aaronsmindpalace.com/assets/js/vendor/modernizr.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://aaronsmindpalace.com/assets/js/jquery.min.js"></script>
+
     <!-- Existing portfolio styles -->
     <link rel="stylesheet" href="assets/css/aaron-chatbot.css">
     
-    <style>
-        /* Page specific styles for chat integration */
-        body {
-            background: #0a0a0a;
-            color: #e0e0e0;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .chat-page-header {
-            padding: 2rem;
-            text-align: center;
-            background: rgba(0, 102, 204, 0.1);
-            border-bottom: 1px solid #333;
-        }
-        
-        .chat-page-header h1 {
-            margin: 0 0 0.5rem 0;
-            font-size: 2.5rem;
-            color: #0066cc;
-        }
-        
-        .chat-page-header p {
-            margin: 0;
-            opacity: 0.8;
-        }
-        
-        .back-link {
-            position: absolute;
-            top: 2rem;
-            left: 2rem;
-            color: #0066cc;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: opacity 0.2s;
-        }
-        
-        .back-link:hover {
-            opacity: 0.8;
-        }
-        
-        .chat-container {
-            flex: 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 2rem;
-        }
-        
-        #aaron-chat-root {
-            width: 100%;
-            max-width: 800px;
-            height: 600px;
-            background: #1a1a1a;
-            border: 1px solid #333;
-            border-radius: 12px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
-        }
-        
-        /* Override widget styles for embedded version */
-        #aaron-chat-root .aaron-chat-widget {
-            position: relative !important;
-            width: 100% !important;
-            height: 100% !important;
-            max-width: none !important;
-            max-height: none !important;
-            bottom: auto !important;
-            right: auto !important;
-        }
-        
-        /* Instructions */
-        .instructions {
-            max-width: 800px;
-            margin: 0 auto 2rem;
-            padding: 1.5rem;
-            background: rgba(0, 102, 204, 0.1);
-            border: 1px solid #333;
-            border-radius: 8px;
-        }
-        
-        .instructions h2 {
-            margin-top: 0;
-            color: #0066cc;
-        }
-        
-        .persona-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 0.5rem;
-            margin-top: 1rem;
-        }
-        
-        .persona-item {
-            padding: 0.5rem;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 4px;
-        }
-        
-        .persona-item strong {
-            color: #0066cc;
-        }
-    </style>
 </head>
-<body>
-    <!-- Back to main site -->
-    <a href="index.html" class="back-link">
-        ← Back to Portfolio
-    </a>
-    
-    <!-- Chat page header -->
-    <div class="chat-page-header">
-        <h1>Chat with Aaron's Mind</h1>
-        <p>Select a personality and start chatting!</p>
-    </div>
-    
-    <!-- Main chat container -->
-    <div class="chat-container">
-        <div id="aaron-chat-root" 
-             data-aaron-chat 
-             data-api-url="https://aarons-chat-clqvy6lu9-ron-mans-projects.vercel.app/api/chat"
-             data-default-persona="portfolio"
-             data-theme="dark">
+
+<body class="page">
+
+    <div id="outdated">
+        <div class="inner">
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser.
+                <br>Please <a href="http://outdatedbrowser.com" target="_blank">upgrade your browser</a> to improve your
+                experience.
+            </p>
         </div>
     </div>
-    
-    <!-- Instructions -->
-    <div class="instructions">
-        <h2>Available Personalities</h2>
-        <div class="persona-list">
-            <div class="persona-item">
-                <strong>Portfolio Assistant:</strong> Knows about my projects and skills
-            </div>
-            <div class="persona-item">
-                <strong>Professional:</strong> Formal and knowledgeable
-            </div>
-            <div class="persona-item">
-                <strong>Casual:</strong> Friendly chat buddy
-            </div>
-            <div class="persona-item">
-                <strong>Technical:</strong> Deep dive into code
-            </div>
-            <div class="persona-item">
-                <strong>Creative:</strong> Imaginative and artistic
-            </div>
-            <div class="persona-item">
-                <strong>Minimalist:</strong> Brief and direct
-            </div>
-            <div class="persona-item">
-                <strong>Freako:</strong> Wild and unpredictable!
-            </div>
-            <div class="persona-item">
-                <strong>Alfred:</strong> Batman's butler (worried about Bruce)
-            </div>
+
+    <header>
+        <div id="site-title">
+            <a href="https://aaronsmindpalace.com" data-target="index">
+                Aaron Eshleman </a>
         </div>
+        <nav id="menu">
+            <ul>
+                <li>
+                    <a href="https://github.com/aaronaaroff" data-title="Github" data-target="page">Github</a>
+                </li>
+                <li>
+                    <a href="https://aaronsmindpalace.com/about" data-title="About" data-target="page">About</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <div id="close">
+        <a href="https://aaronsmindpalace.com" data-target="index">
+            B<span>A<br>C<br>K</span>
+        </a>
     </div>
     
-    <!-- jQuery (already used in your portfolio) -->
-    <script src="assets/js/jquery.min.js"></script>
-    
-    <!-- Chat bot bundle (you'll need to build and include this) -->
-    <script src="assets/js/aaron-chatbot.iife.js"></script>
-    
-    <!-- Temporary mock to show how it would work -->
-    <script>
-        // This will be replaced with the actual chat bot bundle
-        document.addEventListener('DOMContentLoaded', function() {
-            const chatRoot = document.getElementById('aaron-chat-root');
-            chatRoot.innerHTML = `
-                <div style="display: flex; align-items: center; justify-content: center; height: 100%; color: #666;">
-                    <div style="text-align: center;">
-                        <p style="font-size: 1.2rem; margin-bottom: 1rem;">Chat Widget Will Load Here</p>
-                        <p>Build the chat app with: <code>npm run build:standalone</code></p>
-                        <p>Then copy the built files to this directory</p>
+    <div id="container">
+        <div class="inner chat">
+            
+            <!-- Chat page header -->
+            <div class="chat-page-header">
+                <h1>Chat with Aaron's Mind</h1>
+                <p>Select a personality and start chatting!</p>
+            </div>
+            
+            <!-- Main chat widget -->
+            <div class="chat-container">
+                <div id="aaron-chat-root" 
+                     data-aaron-chat 
+                     data-api-url="https://aarons-chat-clqvy6lu9-ron-mans-projects.vercel.app/api/chat"
+                     data-default-persona="portfolio"
+                     data-theme="dark">
+                </div>
+            </div>
+            
+            <!-- Instructions -->
+            <div class="instructions">
+                <h2>Available Personalities</h2>
+                <div class="persona-list">
+                    <div class="persona-item" data-persona="portfolio">
+                        <strong>Portfolio Assistant:</strong> Knows about my projects and skills, would never lie to you
+                    </div>
+                    <div class="persona-item" data-persona="professional">
+                        <strong>Professional:</strong> Formal and knowledgeable
+                    </div>
+                    <div class="persona-item" data-persona="creative">
+                        <strong>Art Critic:</strong> Bad taste and a loud mouth
+                    </div>
+                    <div class="persona-item" data-persona="technical">
+                        <strong>Technical:</strong> Deep dive into code
+                    </div>
+                    <div class="persona-item" data-persona="casual">
+                        <strong>Two Beers Deep:</strong> Imaginative and artistic
+                    </div>
+                    <div class="persona-item" data-persona="minimalist">
+                        <strong>Blunt:</strong> Don't shoot the messenger
+                    </div>
+                    <div class="persona-item" data-persona="freako">
+                        <strong>Freako:</strong> You know him, you love him, it's Freako Time!
+                    </div>
+                    <div class="persona-item" data-persona="alfred">
+                        <strong>Alfred:</strong> Has anyone seen Master Bruce?
                     </div>
                 </div>
-            `;
+            </div>
+            
+        </div>
+    </div>
+
+    <!-- Chat bot bundle -->
+    <script src="assets/js/aaron-chatbot.iife.js"></script>
+    
+    <!-- Persona color management -->
+    <script>
+        // Update persona selector color when changed
+        document.addEventListener('DOMContentLoaded', function() {
+            function updatePersonaColor() {
+                const selector = document.querySelector('.persona-select');
+                if (selector) {
+                    const currentPersona = selector.value;
+                    selector.setAttribute('data-current', currentPersona);
+                }
+            }
+            
+            // Set initial color
+            setTimeout(updatePersonaColor, 500);
+            
+            // Update on change
+            document.addEventListener('change', function(e) {
+                if (e.target.classList.contains('persona-select')) {
+                    updatePersonaColor();
+                }
+            });
         });
     </script>
     
-    <!-- Navigation for mobile -->
+    <!-- Portfolio JavaScript files -->
     <script>
-        // Add any mobile navigation handlers if needed
+        var $sitetitle = 'Aaron\'s Mind Palace';
     </script>
+    <script src="https://aaronsmindpalace.com/assets/js/plugins.js"></script>
+    <script src="https://aaronsmindpalace.com/assets/js/app.cloth.bundle.js"></script>
 </body>
 </html>

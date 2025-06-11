@@ -1,1 +1,466 @@
-.aaron-chat-widget{position:fixed;bottom:20px;right:20px;width:380px;max-width:90vw;height:600px;max-height:80vh;background:#1a1a1a;border:1px solid #333;border-radius:12px;box-shadow:0 10px 40px #00000080;display:flex;flex-direction:column;font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,sans-serif;z-index:1000;transition:all .3s ease}.aaron-chat-widget.minimized{height:60px}.aaron-chat-widget.dark{background:#1a1a1a;color:#e0e0e0}.aaron-chat-widget.dark .chat-header{background:#06c;color:#fff}.aaron-chat-widget.light{background:#fff;color:#333;border-color:#ddd}.aaron-chat-widget.light .chat-header{background:#f0f0f0;color:#333;border-bottom:1px solid #ddd}.chat-header{padding:12px 16px;border-radius:12px 12px 0 0;display:flex;justify-content:space-between;align-items:center;-webkit-user-select:none;user-select:none}.header-content{display:flex;align-items:center;gap:12px;flex:1}.chat-header h3{margin:0;font-size:16px;font-weight:600}.persona-select{padding:4px 8px;border-radius:4px;border:1px solid rgba(255,255,255,.2);background:#0003;color:inherit;font-size:13px;cursor:pointer}.aaron-chat-widget.light .persona-select{border-color:#ddd;background:#fff}.minimize-btn{background:none;border:none;color:inherit;font-size:18px;cursor:pointer;padding:4px 8px;opacity:.8;transition:opacity .2s}.minimize-btn:hover{opacity:1}.chat-messages{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:12px}.message{padding:10px 14px;border-radius:8px;animation:fadeIn .3s ease}.message.user{background:#06c;color:#fff;align-self:flex-end;max-width:80%}.message.assistant{background:#2a2a2a;color:#e0e0e0;align-self:flex-start;max-width:80%}.aaron-chat-widget.light .message.assistant{background:#f5f5f5;color:#333}.message.switch-message{background:#444;color:orange;text-align:center;font-style:italic;font-size:13px;padding:6px 12px;align-self:center}.aaron-chat-widget.light .message.switch-message{background:#fff3cd;color:#856404}.message strong{display:block;margin-bottom:4px;font-size:13px;opacity:.8}.message p{margin:0;line-height:1.4}.message.loading{color:#888;font-style:italic;text-align:center;align-self:center}.chat-input-form{padding:16px;border-top:1px solid #333;display:flex;gap:8px}.aaron-chat-widget.light .chat-input-form{border-top-color:#ddd}.chat-input{flex:1;padding:10px 14px;border:1px solid #333;border-radius:6px;background:#2a2a2a;color:#e0e0e0;font-size:14px;outline:none;transition:border-color .2s}.aaron-chat-widget.light .chat-input{border-color:#ddd;background:#fff;color:#333}.chat-input:focus{border-color:#06c}.chat-input:disabled{opacity:.6}.send-btn{padding:10px 20px;background:#06c;color:#fff;border:none;border-radius:6px;font-size:14px;font-weight:500;cursor:pointer;transition:background-color .2s}.send-btn:hover:not(:disabled){background:#0052a3}.send-btn:disabled{opacity:.6;cursor:not-allowed}@keyframes fadeIn{0%{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}@media (max-width: 480px){.aaron-chat-widget{width:calc(100vw - 20px);height:calc(100vh - 100px);right:10px;bottom:10px}.header-content{flex-direction:column;align-items:flex-start;gap:8px}.persona-select{width:100%}}
+/* Aaron's Mind Palace Chat - Integrated Page Style */
+
+/* Transform widget into full-page integrated chat */
+.aaron-chat-widget {
+    position: relative !important;
+    bottom: auto !important;
+    right: auto !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    max-height: none !important;
+    background: transparent !important;
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    display: flex;
+    flex-direction: column;
+    font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+    color: #333 !important;
+    margin: 2rem 0;
+    padding: 0;
+}
+
+/* Chat header - centered persona selector */
+.chat-header {
+    padding: 2rem 0;
+    border-radius: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 2rem;
+    background: transparent !important;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    justify-content: center;
+    max-width: 1200px;
+}
+
+.chat-header h3 {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    opacity: 0.8;
+    color: #333 !important;
+}
+
+/* Persona selector - minimal style with dynamic colors */
+.persona-select {
+    padding: 0.5rem 1rem;
+    border-radius: 0;
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    background: transparent !important;
+    color: rgba(100, 150, 255, 1) !important;
+    font-size: 1rem;
+    font-family: inherit;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    outline: none;
+    font-weight: 500;
+}
+
+.persona-select:hover {
+    border-bottom-color: rgba(0, 0, 0, 0.4);
+}
+
+.persona-select:focus {
+    border-bottom-color: rgba(0, 0, 0, 0.6);
+}
+
+.persona-select option {
+    background: #fff;
+    color: #333;
+}
+
+/* Dynamic persona colors for selector */
+.persona-select[data-current="professional"] {
+    color: rgba(70, 130, 200, 1) !important;
+}
+
+.persona-select[data-current="casual"] {
+    color: rgba(80, 180, 80, 1) !important;
+}
+
+.persona-select[data-current="technical"] {
+    color: rgba(150, 80, 200, 1) !important;
+}
+
+.persona-select[data-current="creative"] {
+    color: rgba(220, 120, 80, 1) !important;
+}
+
+.persona-select[data-current="minimalist"] {
+    color: rgba(120, 120, 120, 1) !important;
+}
+
+.persona-select[data-current="freako"] {
+    color: rgba(220, 80, 160, 1) !important;
+}
+
+.persona-select[data-current="alfred"] {
+    color: rgba(180, 150, 80, 1) !important;
+}
+
+.persona-select[data-current="portfolio"] {
+    color: rgba(100, 150, 255, 1) !important;
+}
+
+/* Hide minimize button */
+.minimize-btn {
+    display: none !important;
+}
+
+/* Chat messages - full width layout */
+.chat-messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+    width: 100%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+}
+
+.chat-messages::-webkit-scrollbar {
+    width: 4px;
+}
+
+.chat-messages::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.chat-messages::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 2px;
+}
+
+/* Remove message bubbles - use full width with alignment */
+.message {
+    padding: 1rem 0 !important;
+    border-radius: 0 !important;
+    animation: fadeIn 0.3s ease;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    border: none !important;
+    background: transparent !important;
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    margin: 0 !important;
+    max-width: 100% !important;
+    color: #333 !important;
+}
+
+/* User messages - right aligned */
+.message.user {
+    justify-content: flex-end;
+    text-align: right;
+    color: #333 !important;
+    align-self: flex-end !important;
+}
+
+.message.user .message-content {
+    max-width: 60%;
+    border-left: 2px solid rgba(0, 0, 0, 0.4);
+    padding-left: 1rem;
+}
+
+.message.user .message-label {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    opacity: 0.6;
+    margin-bottom: 0.5rem;
+    color: rgba(0, 0, 0, 0.7);
+}
+
+/* Assistant messages - left aligned with persona colors */
+.message.assistant {
+    justify-content: flex-start;
+    text-align: left;
+    color: #333 !important;
+    align-self: flex-start !important;
+}
+
+.message.assistant .message-content {
+    max-width: 60%;
+    border-left: 2px solid rgba(100, 150, 255, 0.6);
+    padding-left: 1rem;
+}
+
+.message.assistant .message-label {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    opacity: 0.8;
+    margin-bottom: 0.5rem;
+    color: rgba(100, 150, 255, 1);
+}
+
+/* Persona-specific colors */
+.message.assistant[data-persona="professional"] .message-content {
+    border-left-color: rgba(70, 130, 200, 0.8);
+}
+.message.assistant[data-persona="professional"] .message-label {
+    color: rgba(70, 130, 200, 1);
+}
+
+.message.assistant[data-persona="casual"] .message-content {
+    border-left-color: rgba(80, 180, 80, 0.8);
+}
+.message.assistant[data-persona="casual"] .message-label {
+    color: rgba(80, 180, 80, 1);
+}
+
+.message.assistant[data-persona="technical"] .message-content {
+    border-left-color: rgba(150, 80, 200, 0.8);
+}
+.message.assistant[data-persona="technical"] .message-label {
+    color: rgba(150, 80, 200, 1);
+}
+
+.message.assistant[data-persona="creative"] .message-content {
+    border-left-color: rgba(220, 120, 80, 0.8);
+}
+.message.assistant[data-persona="creative"] .message-label {
+    color: rgba(220, 120, 80, 1);
+}
+
+.message.assistant[data-persona="minimalist"] .message-content {
+    border-left-color: rgba(120, 120, 120, 0.8);
+}
+.message.assistant[data-persona="minimalist"] .message-label {
+    color: rgba(120, 120, 120, 1);
+}
+
+.message.assistant[data-persona="freako"] .message-content {
+    border-left-color: rgba(220, 80, 160, 0.8);
+}
+.message.assistant[data-persona="freako"] .message-label {
+    color: rgba(220, 80, 160, 1);
+}
+
+.message.assistant[data-persona="alfred"] .message-content {
+    border-left-color: rgba(180, 150, 80, 0.8);
+}
+.message.assistant[data-persona="alfred"] .message-label {
+    color: rgba(180, 150, 80, 1);
+}
+
+.message.assistant[data-persona="portfolio"] .message-content {
+    border-left-color: rgba(100, 150, 255, 0.8);
+}
+.message.assistant[data-persona="portfolio"] .message-label {
+    color: rgba(100, 150, 255, 1);
+}
+
+/* Ensure message content structure exists */
+.message p {
+    margin: 0;
+    line-height: 1.6;
+    color: inherit !important;
+}
+
+.message strong {
+    display: block;
+    margin-bottom: 0.25rem;
+    font-size: 0.8rem;
+    opacity: 0.6;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* Hide persona switch messages */
+.message.switch-message {
+    display: none !important;
+}
+
+.message.loading {
+    color: rgba(255, 255, 255, 0.4) !important;
+    font-style: italic;
+    text-align: center;
+    justify-content: center;
+    background: transparent !important;
+}
+
+/* Chat input - full width centered */
+.chat-input-form {
+    padding: 2rem 0 !important;
+    border-top: 1px solid rgba(0, 0, 0, 0.1) !important;
+    display: flex;
+    gap: 2rem;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: flex-end;
+    background: transparent !important;
+}
+
+.chat-input {
+    flex: 1;
+    padding: 1rem 0 !important;
+    border: none !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2) !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    color: #333 !important;
+    font-size: 1.1rem;
+    font-family: inherit;
+    outline: none;
+    transition: border-color 0.2s ease;
+    line-height: 1.4;
+    resize: none;
+    min-height: 1.4rem;
+}
+
+.chat-input:focus {
+    border-bottom-color: rgba(0, 0, 0, 0.6) !important;
+}
+
+.chat-input:disabled {
+    opacity: 0.4;
+}
+
+.chat-input::placeholder {
+    color: rgba(0, 0, 0, 0.4);
+    font-style: italic;
+}
+
+.send-btn {
+    padding: 1rem 0 !important;
+    background: transparent !important;
+    color: #333 !important;
+    border: none !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.4) !important;
+    border-radius: 0 !important;
+    font-size: 1.1rem;
+    font-family: inherit;
+    font-weight: 400;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    min-width: 80px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.send-btn:hover:not(:disabled) {
+    border-bottom-color: rgba(0, 0, 0, 0.8) !important;
+    opacity: 0.8;
+}
+
+.send-btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .persona-select {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .message.user .message-content,
+    .message.assistant .message-content {
+        max-width: 80%;
+    }
+
+    .chat-input-form {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem 0 !important;
+    }
+
+    .send-btn {
+        align-self: center;
+        min-width: 120px;
+    }
+}
+
+/* Override any existing widget styles */
+#aaron-chat-root {
+    width: 100% !important;
+    height: auto !important;
+    background: transparent !important;
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+}
+
+#aaron-chat-root .aaron-chat-widget {
+    position: relative !important;
+    width: 100% !important;
+    height: auto !important;
+    max-width: none !important;
+    max-height: none !important;
+    bottom: auto !important;
+    right: auto !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* Persona description styling to match chat colors */
+.persona-item[data-persona="portfolio"] strong {
+    color: rgba(100, 150, 255, 1) !important;
+}
+
+.persona-item[data-persona="professional"] strong {
+    color: rgba(70, 130, 200, 1) !important;
+}
+
+.persona-item[data-persona="casual"] strong {
+    color: rgba(80, 180, 80, 1) !important;
+}
+
+.persona-item[data-persona="technical"] strong {
+    color: rgba(150, 80, 200, 1) !important;
+}
+
+.persona-item[data-persona="creative"] strong {
+    color: rgba(220, 120, 80, 1) !important;
+}
+
+.persona-item[data-persona="minimalist"] strong {
+    color: rgba(120, 120, 120, 1) !important;
+}
+
+.persona-item[data-persona="freako"] strong {
+    color: rgba(220, 80, 160, 1) !important;
+}
+
+.persona-item[data-persona="alfred"] strong {
+    color: rgba(180, 150, 80, 1) !important;
+}
